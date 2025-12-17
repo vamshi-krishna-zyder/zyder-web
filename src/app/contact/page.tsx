@@ -157,9 +157,10 @@ export default function ContactPage() {
                 <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Your Role</label>
                 <select
                   name="role"
+                  defaultValue=""
                   className="w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3.5 text-white focus:border-violet-500 focus:outline-none focus:ring-1 focus:ring-violet-500 transition-all text-slate-300"
                 >
-                  <option value="" disabled selected>Select your role</option>
+                  <option value="" disabled>Select your role</option>
                   <option value="founder">Founder / CXO</option>
                   <option value="ops_manager">Operations Manager</option>
                   <option value="product">Product Manager</option>

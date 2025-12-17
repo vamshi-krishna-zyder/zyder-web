@@ -2,6 +2,8 @@ import "./globals.css";
 import { Inter, Outfit } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import SmoothScroll from "@/components/ui/smooth-scroll";
+import { GrainOverlay } from "@/components/ui/animation-wrappers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,13 +29,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
-      <body className="antialiased">
-        <Header />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+    <html lang="en" className={`${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
+      <body className="antialiased bg-black text-white">
+        <SmoothScroll>
+          <GrainOverlay />
+          <Header />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

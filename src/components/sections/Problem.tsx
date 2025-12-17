@@ -1,61 +1,90 @@
+"use client";
+
+import { StaggerContainer, StaggerItem, SpotlightCard, TextReveal, BlurReveal } from "@/components/ui/animation-wrappers";
+import Image from "next/image";
+
 export default function Problem() {
   const challenges = [
     {
       title: "Manual Ops Chaos",
-      description: "Managing fleets via spreadsheets and WhatsApp groups creates communication bottlenecks and kills efficiency.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-      )
+      description: "Managing fleets via spreadsheets creates bottlenecks.",
+      image: "/problem_chaos.png",
+      delay: 0.1
     },
     {
       title: "Payout Friction",
-      description: "Delayed and inaccurate manual payouts lead to high driver churn and operational instability.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      )
+      description: "Delayed manual payouts lead to high driver churn.",
+      image: "/problem_friction.png",
+      delay: 0.2
     },
     {
       title: "Data Blindspots",
-      description: "Without real-time visibility, you can't optimize routes or improved workforce performance.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
-        </svg>
-      )
+      description: "No real-time visibility means lost efficiency.",
+      image: "/problem_blindspots.png",
+      delay: 0.3
     }
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-slate-900/50 skew-y-3 transform origin-top-left scale-110 -z-10" />
+    <section className="py-32 relative overflow-hidden bg-black">
+      {/* Cinematic Background Element */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <Image
+          src="/problem_glitch_abstract.png"
+          alt="Chaos"
+          fill
+          className="object-cover opacity-50 mix-blend-color-dodge"
+          onError={(e) => e.currentTarget.style.display = 'none'} // Fallback if image gen failed
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+      </div>
 
-      <div className="container-width">
-        <div className="mb-16 md:text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display">
-            The old way of running logistics is <span className="text-violet-400">broken</span>
+      <div className="container-width relative z-10">
+        <div className="mb-20 md:text-center max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-6xl font-bold mb-8 font-display tracking-tight">
+            <TextReveal delay={0.1}>The old way is</TextReveal> <span className="text-red-500"><TextReveal delay={0.2}>broken.</TextReveal></span>
           </h2>
-          <p className="text-lg text-slate-400">
-            Last-mile operations are leaking money through manual processes, disconnected tools, and lack of visibility.
-          </p>
+          <BlurReveal delay={0.3}>
+            <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+              Last-mile operations are bleeding money through manual chaos, friction, and blindness.
+            </p>
+          </BlurReveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[50vh] min-h-[400px]">
           {challenges.map((item, index) => (
-            <div key={index} className="glass-panel p-8 rounded-2xl hover:bg-white/10 transition-colors group">
-              <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-violet-400 mb-6 group-hover:scale-110 transition-transform">
-                {item.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-              <p className="text-slate-400 leading-relaxed">
-                {item.description}
-              </p>
-            </div>
+            <StaggerItem key={index} className="h-full">
+              <SpotlightCard className="h-full group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 hover:border-white/20 transition-all duration-500">
+
+                {/* Visual Background Image */}
+                <div className="absolute inset-0 opacity-40 group-hover:opacity-100 transition-opacity duration-700">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    onError={(e) => e.currentTarget.style.display = 'none'}
+                  />
+                </div>
+
+                {/* Dark Gradient Overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent group-hover:via-black/20 transition-all duration-500" />
+
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-transform duration-500 group-hover:-translate-y-2 translate-y-2">
+                  <h3 className="text-3xl font-bold mb-3 text-white drop-shadow-md">{item.title}</h3>
+                  <p className="text-slate-300 text-lg leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
+                    {item.description}
+                  </p>
+                </div>
+
+                {/* Glitch Overlay on Hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 pointer-events-none mix-blend-overlay transition-opacity duration-300 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+
+              </SpotlightCard>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
