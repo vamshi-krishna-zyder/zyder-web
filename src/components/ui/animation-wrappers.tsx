@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring, useMotionTemplate, useMotionValue, MotionProps, Easing, useVelocity } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useMotionTemplate, useMotionValue, MotionProps, Easing, useVelocity, animate, useInView } from "framer-motion";
 import { useRef, ReactNode, MouseEvent, useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
@@ -367,5 +367,53 @@ export function GrainOverlay() {
         <div className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] mix-blend-overlay">
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat brightness-100 contrast-150 animate-grain" />
         </div>
+    );
+}
+
+// --- Count Up Animation ---
+export function CountUp({
+    to,
+    from = 0,
+    duration = 2,
+    className,
+    decimals = 0,
+    prefix = "",
+    suffix = "",
+}: {
+    to: number;
+    from?: number;
+    duration?: number;
+    className?: string;
+    decimals?: number;
+    prefix?: string;
+    suffix?: string;
+}) {
+    const ref = useRef<HTMLSpanElement>(null);
+    const inView = useInView(ref, { once: true });
+
+    useEffect(() => {
+        if (!inView) return;
+
+        const node = ref.current;
+        if (!node) return;
+
+        const controls = animate(from, to, {
+            duration: duration,
+            ease: EASE_PREMIUM,
+            onUpdate: (value) => {
+                node.textContent = prefix + value.toFixed(decimals) + suffix;
+            },
+        });
+
+        return () => controls.stop();
+    }, [inView, from, to, duration, decimals, prefix, suffix]);
+
+    return (
+        <span
+            ref={ref}
+            className={className}
+        >
+            {prefix + from.toFixed(decimals) + suffix}
+        </span>
     );
 }

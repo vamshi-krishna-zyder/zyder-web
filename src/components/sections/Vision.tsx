@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { TextReveal, BlurReveal } from "@/components/ui/animation-wrappers";
+import Image from "next/image";
 
 export default function Vision() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,6 +35,19 @@ export default function Vision() {
         >
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-50" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(255,255,255,0.1),transparent_70%)]" />
+          {/* Planet Texture Overlay */}
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 200, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 opacity-60 mix-blend-screen"
+          >
+            <Image
+              src="/vision_planet_texture.png"
+              alt="Digital Planet Texture"
+              fill
+              className="object-cover scale-110"
+            />
+          </motion.div>
         </motion.div>
 
         {/* Orbiting Elements (Data Satellites) */}

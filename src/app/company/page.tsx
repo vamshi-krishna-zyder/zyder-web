@@ -3,42 +3,118 @@ import { TextReveal, BlurReveal, StaggerContainer, StaggerItem, TiltCard, FadeIn
 
 export default function CompanyPage() {
     return (
-        <div className="pt-32 pb-24">
-            {/* Mission Hero */}
-            <section className="container-width mb-24 text-center">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display mb-8 leading-tight">
-                    <TextReveal>We're building the</TextReveal> <span className="text-gradient-accent"><TextReveal delay={0.2}>backbone of modern commerce</TextReveal></span>
-                </h1>
-                <BlurReveal delay={0.4}>
-                    <p className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-                        Zyder was founded with a single mission: to bring transparency, efficiency, and fairness to the last-mile logistics industry through advanced technology.
-                    </p>
-                </BlurReveal>
+        <div className="pt-32 pb-24 overflow-x-hidden">
+            {/* Mission Hero - Split Layout (Left Aligned) */}
+            <section className="container-width mb-32 pt-20">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    <div className="max-w-2xl text-left relative z-10">
+                        <BlurReveal delay={0.1}>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-xs font-medium text-violet-300 mb-6 backdrop-blur-sm">
+                                <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
+                                Our Mission
+                            </div>
+                        </BlurReveal>
+
+                        <BlurReveal delay={0.2}>
+                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display mb-8 leading-tight">
+                                Building the backbone <br />
+                                <span className="text-gradient-accent">of modern commerce</span>
+                            </h1>
+                        </BlurReveal>
+
+                        <BlurReveal delay={0.4}>
+                            <p className="text-xl md:text-2xl text-slate-400 leading-relaxed max-w-lg">
+                                Zyder was founded with a single mission: to bring transparency, efficiency, and fairness to the last-mile logistics industry.
+                            </p>
+                        </BlurReveal>
+                    </div>
+
+                    <div className="relative perspective-1000">
+                        {/* Abstract Network Visual */}
+                        <FadeIn delay={0.3} duration={0.8}>
+                            <TiltCard className="relative rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-md shadow-2xl shadow-violet-900/20">
+                                <div className="aspect-square md:aspect-[4/3] rounded-xl bg-black/50 overflow-hidden relative">
+                                    <Image
+                                        src="/company_hero_backbone_cine.png"
+                                        alt="Global Logistics Backbone"
+                                        fill
+                                        className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-700"
+                                        priority
+                                    />
+                                    {/* Overlay Gradient for integration */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+                                </div>
+                            </TiltCard>
+                        </FadeIn>
+                        {/* Decorative Glow */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-violet-600/20 blur-[100px] -z-10 rounded-full" />
+                    </div>
+                </div>
             </section>
 
-            {/* Values Grid */}
-            <section className="bg-white/[0.02] border-y border-white/5 py-24 mb-24 relative overflow-hidden">
+            {/* Cinematic Values Grid */}
+            <section className="bg-white/[0.02] border-y border-white/5 py-32 mb-24 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 mix-blend-overlay" />
 
                 <div className="container-width relative z-10">
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-20">
                         <FadeIn>
-                            <h2 className="text-3xl font-bold font-display mb-4">Our Values</h2>
+                            <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">Built on Principle</h2>
+                        </FadeIn>
+                        <FadeIn delay={0.2}>
+                            <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                                The core pillars that define every decision we make at Zyder.
+                            </p>
                         </FadeIn>
                     </div>
+
                     <StaggerContainer className="grid md:grid-cols-3 gap-8" delay={0.2}>
                         {[
-                            { title: "Transparency First", desc: "We believe in open data and clear communication between all stakeholders." },
-                            { title: "Relentless Efficiency", desc: "We obsess over shaving seconds off deliveries and pennies off costs." },
-                            { title: "Empowerment", desc: "We build tools that help drivers, vendors, and brands grow their businesses." }
+                            {
+                                title: "Radical Transparency",
+                                desc: "No black boxes. We believe in open data and clear communication between all stakeholders.",
+                                image: "/value_transparency.png",
+                                color: "from-violet-500/20 to-violet-900/20"
+                            },
+                            {
+                                title: "Relentless Efficiency",
+                                desc: "We obsess over shaving seconds off deliveries and pennies off costs to maximize value.",
+                                image: "/value_efficiency.png",
+                                color: "from-cyan-500/20 to-blue-900/20"
+                            },
+                            {
+                                title: "Empowerment",
+                                desc: "We build tools that help drivers, vendors, and brands grow their businesses together.",
+                                image: "/value_empowerment.png",
+                                color: "from-amber-500/20 to-orange-900/20"
+                            }
                         ].map((value, i) => (
-                            <StaggerItem key={i}>
-                                <TiltCard className="glass-panel p-8 rounded-2xl h-full border border-white/10 hover:border-violet-500/30 transition-colors group">
-                                    <div className="w-10 h-10 rounded-full bg-violet-500/10 flex items-center justify-center mb-6 text-violet-400 group-hover:scale-110 transition-transform">
-                                        <div className="w-2 h-2 rounded-full bg-violet-500" />
+                            <StaggerItem key={i} className="h-full">
+                                <TiltCard className="group relative h-full rounded-3xl overflow-hidden glass-panel border border-white/10 hover:border-white/20 transition-all duration-500 bg-black/40">
+                                    {/* Abstract Visual Top Half */}
+                                    <div className="relative h-64 w-full overflow-hidden">
+                                        <Image
+                                            src={value.image}
+                                            alt={value.title}
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                        />
+                                        <div className={`absolute inset-0 bg-gradient-to-t ${value.color} mix-blend-overlay opacity-50`} />
+                                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-white mb-4 group-hover:text-violet-200 transition-colors">{value.title}</h3>
-                                    <p className="text-slate-400 leading-relaxed">{value.desc}</p>
+
+                                    {/* Content Bottom Half */}
+                                    <div className="p-8 relative -mt-8 pt-0 z-10">
+                                        <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-400 transition-all">
+                                            {value.title}
+                                        </h3>
+                                        <p className="text-slate-400 leading-relaxed font-light border-l border-white/10 pl-4">
+                                            {value.desc}
+                                        </p>
+                                    </div>
+
+                                    {/* Hover Glow */}
+                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
                                 </TiltCard>
                             </StaggerItem>
                         ))}
@@ -75,8 +151,8 @@ export default function CompanyPage() {
                     <FadeIn delay={0.6}>
                         <TiltCard className="relative h-[500px] w-full rounded-2xl overflow-hidden glass-panel border border-white/10 group shadow-2xl">
                             <Image
-                                src="/company_team.png"
-                                alt="Zyder Global Team"
+                                src="/company_team_abstract.png"
+                                alt="Zyder Collaborative Network"
                                 fill
                                 className="object-cover group-hover:scale-105 transition-transform duration-700"
                             />

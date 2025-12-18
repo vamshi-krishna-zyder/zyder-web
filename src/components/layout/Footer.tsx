@@ -133,8 +133,8 @@ export default function Footer() {
                   <p className="text-slate-400">Join our network for the latest logistics technology updates.</p>
                 </div>
                 <div className="flex w-full md:w-auto gap-3">
-                  <input type="email" placeholder="Enter your email" className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-violet-500 transition-colors w-full md:w-80" />
-                  <button className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors">
+                  <input type="email" placeholder="Enter your email" className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-violet-500 transition-colors w-full md:w-80" suppressHydrationWarning />
+                  <button className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors" suppressHydrationWarning>
                     Subscribe
                   </button>
                 </div>

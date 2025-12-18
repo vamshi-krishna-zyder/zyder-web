@@ -1,4 +1,4 @@
-import { FadeIn, StaggerContainer, StaggerItem, TiltCard, TextReveal } from "@/components/ui/animation-wrappers";
+import { FadeIn, StaggerContainer, StaggerItem, TiltCard, TextReveal, CountUp } from "@/components/ui/animation-wrappers";
 
 export default function PlatformReliability() {
   return (
@@ -27,7 +27,9 @@ export default function PlatformReliability() {
             <FadeIn delay={0.3}>
               <div className="grid grid-cols-2 gap-6 mb-10">
                 <TiltCard className="p-6 rounded-2xl bg-white/5 border border-white/10 group hover:border-violet-500/30 transition-all">
-                  <div className="text-4xl font-bold text-white mb-2 font-mono group-hover:text-violet-400 transition-colors">99.99%</div>
+                  <div className="text-4xl font-bold text-white mb-2 font-mono group-hover:text-violet-400 transition-colors">
+                    <CountUp to={99.99} decimals={2} suffix="%" />
+                  </div>
                   <div className="text-sm text-slate-400">Uptime SLA</div>
                 </TiltCard>
                 <TiltCard className="p-6 rounded-2xl bg-white/5 border border-white/10 group hover:border-violet-500/30 transition-all">

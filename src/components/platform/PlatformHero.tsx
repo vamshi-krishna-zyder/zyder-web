@@ -67,59 +67,20 @@ export default function PlatformHero() {
               <TiltCard className="relative rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-md shadow-2xl shadow-violet-900/20">
                 <Parallax offset={20} className="aspect-[4/3] rounded-xl bg-black/50 overflow-hidden relative border border-white/5 group">
                   {/* Fallback to CSS Abstract UI if image fails or for stylistic consistency */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black p-4 flex flex-col">
-                    {/* Abstract Header */}
-                    <div className="h-12 border-b border-white/10 flex items-center px-4 gap-4 mb-4">
-                      <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                      <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                      <div className="w-3 h-3 rounded-full bg-green-500/50" />
-                      <div className="ml-auto w-32 h-2 rounded-full bg-white/10" />
-                    </div>
-                    {/* Abstract Body Content */}
-                    <div className="flex-1 flex gap-4">
-                      <div className="w-16 bg-white/5 rounded-lg h-full" />
-                      <div className="flex-1 space-y-3">
-                        <div className="h-32 bg-white/5 rounded-lg w-full relative overflow-hidden">
-                          <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-violet-500/20 to-transparent" />
-                          <svg className="absolute inset-0 h-full w-full" preserveAspectRatio="none"><path d="M0 100 Q 50 50 100 80 T 200 40 T 300 60 L 300 130 L 0 130 Z" fill="url(#grad)" opacity="0.3" /></svg>
-                        </div>
-                        <div className="grid grid-cols-2 gap-3">
-                          <div className="h-20 bg-white/5 rounded-lg" />
-                          <div className="h-20 bg-white/5 rounded-lg" />
-                        </div>
-                      </div>
-                    </div>
+                  {/* Real Image Overlay */}
+                  <div className="relative w-full h-full z-10">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/platform_hero_dashboard.png"
+                      alt="Rostering Module UI"
+                      className="w-full h-full object-cover shadow-2xl"
+                    />
                   </div>
-
-                  {/* Real Image Overlay (if available and loaded) - Using Image Fallback technique */}
-                  <Image
-                    src="/platform_ui.png"
-                    alt="Rostering Module UI"
-                    fill
-                    className="object-cover transition-opacity duration-500 opacity-90 hover:opacity-100 mix-blend-lighten"
-                  />
 
                   {/* Reflection Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-20 transition-opacity pointer-events-none" />
                 </Parallax>
               </TiltCard>
-
-              {/* Floating Badge */}
-              <Parallax offset={40} className="absolute -bottom-8 -left-8 z-20">
-                <div className="glass-panel p-5 rounded-2xl animate-bounce-slow border border-white/10 shadow-xl bg-black/80 backdrop-blur-xl">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 shadow-[0_0_15px_rgba(34,197,94,0.3)]">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div className="text-xs text-slate-400 uppercase tracking-wider font-bold mb-0.5">Efficiency</div>
-                      <div className="text-2xl font-bold text-white">+35%</div>
-                    </div>
-                  </div>
-                </div>
-              </Parallax>
             </BlurReveal>
           </div>
         </div>

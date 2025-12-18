@@ -1,4 +1,5 @@
 import { BlurReveal, TextReveal, StaggerContainer, StaggerItem, SpotlightCard } from "@/components/ui/animation-wrappers";
+import Image from "next/image";
 
 const modules = [
   {
@@ -58,39 +59,21 @@ export default function PlatformModules() {
                   <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
                   <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)]" />
 
-                  {/* Abstract Shapes based on Type */}
-                  {module.title.includes("Workforce") && (
-                    <div className="relative w-48 h-32 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 p-3 flex flex-col gap-2 transform group-hover:scale-105 transition-transform duration-500 shadow-2xl">
-                      {[1, 2, 3].map(i => <div key={i} className="h-6 w-full bg-white/10 rounded-md flex items-center px-2 gap-2"><div className="w-4 h-4 rounded-full bg-violet-500/50" /><div className="h-2 w-20 bg-white/20 rounded-full" /></div>)}
-                    </div>
-                  )}
-                  {module.title.includes("Operations") && (
-                    <div className="relative w-full h-full flex items-center justify-center">
-                      <div className="absolute w-64 h-64 border border-blue-500/20 rounded-full animate-[spin_10s_linear_infinite]" />
-                      <div className="absolute w-48 h-48 border border-blue-500/40 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
-                      <div className="relative w-32 h-16 bg-blue-900/20 backdrop-blur-xl border border-blue-500/30 rounded-lg flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.2)]">
-                        <span className="text-blue-400 font-mono text-xs">LIVE TRACKING</span>
-                      </div>
-                    </div>
-                  )}
-                  {module.title.includes("Payout") && (
-                    <div className="relative flex items-end gap-2 h-32 w-48 pb-4 border-b border-emerald-500/30">
-                      {[40, 70, 50, 90, 60].map((h, i) => (
-                        <div key={i} className="w-full bg-emerald-500/20 rounded-t-sm relative group-hover:bg-emerald-500/40 transition-colors" style={{ height: `${h}%` }}>
-                          {i === 3 && <div className="absolute -top-6 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-emerald-500 rounded text-[10px] text-black font-bold">12%</div>}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  {module.title.includes("Analytics") && (
-                    <div className="relative w-56 h-32 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 p-4 transform group-hover:rotate-1 transition-transform duration-500">
-                      <div className="h-full w-full border-l border-b border-orange-500/30 relative">
-                        <svg className="absolute inset-0 h-full w-full overflow-visible">
-                          <path d="M0 80 Q 20 60, 40 70 T 80 40 T 140 30 T 180 10" fill="none" stroke="#f97316" strokeWidth="3" className="drop-shadow-[0_0_10px_rgba(249,115,22,0.5)]" />
-                        </svg>
-                      </div>
-                    </div>
-                  )}
+                  <div className="absolute inset-0 z-0">
+                    <Image
+                      src={
+                        module.title.includes("Workforce") ? "/platform_module_workforce.png" :
+                          module.title.includes("Operations") ? "/platform_module_operations.png" :
+                            module.title.includes("Payout") ? "/platform_module_payouts.png" :
+                              "/platform_module_analytics.png"
+                      }
+                      alt={module.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent opacity-60" />
+                  </div>
                 </div>
 
                 {/* 40% Content Area */}
