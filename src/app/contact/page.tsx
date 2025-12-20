@@ -132,6 +132,29 @@ export default function ContactPage() {
                   />
                 </div>
                 <div className="space-y-2">
+                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Mobile Number</label>
+                  <input
+                    name="mobile"
+                    type="tel"
+                    required
+                    className="w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3.5 text-white focus:border-violet-500 focus:outline-none focus:ring-1 focus:ring-violet-500 transition-all placeholder:text-slate-700"
+                    placeholder="+91 98765 43210"
+                  />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-5">
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Work Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    className="w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3.5 text-white focus:border-violet-500 focus:outline-none focus:ring-1 focus:ring-violet-500 transition-all placeholder:text-slate-700"
+                    placeholder="john@company.com"
+                  />
+                </div>
+                <div className="space-y-2">
                   <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Company Name</label>
                   <input
                     name="company"
@@ -143,27 +166,18 @@ export default function ContactPage() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Work Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  className="w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3.5 text-white focus:border-violet-500 focus:outline-none focus:ring-1 focus:ring-violet-500 transition-all placeholder:text-slate-700"
-                  placeholder="john@company.com"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Your Role</label>
+                <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">I am a...</label>
                 <select
                   name="role"
                   defaultValue=""
                   className="w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3.5 text-white focus:border-violet-500 focus:outline-none focus:ring-1 focus:ring-violet-500 transition-all text-slate-300"
                 >
-                  <option value="" disabled>Select your role</option>
+                  <option value="" disabled>Select your type</option>
+                  <option value="3pl_vendor">3PL Vendor</option>
+                  <option value="d2c_brand">D2C Brand</option>
+                  <option value="delivery_agent">Delivery Agent</option>
                   <option value="founder">Founder / CXO</option>
                   <option value="ops_manager">Operations Manager</option>
-                  <option value="product">Product Manager</option>
                   <option value="other">Other</option>
                 </select>
               </div>

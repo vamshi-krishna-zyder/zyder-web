@@ -54,7 +54,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">
-            {["Platform", "Company", "Careers"].map((item) => (
+            {["Platform", "Company", "Careers", "Login"].map((item) => (
               <Magnetic key={item} strength={0.2}>
                 <Link
                   href={`/${item.toLowerCase()}`}

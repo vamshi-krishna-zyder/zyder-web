@@ -31,6 +31,12 @@ const InstagramIcon = () => (
   </svg>
 );
 
+const PlayStoreIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M4.093 0.283C3.903 0.493 3.796 0.771 3.796 1.109V22.892C3.796 23.23 3.903 23.508 4.093 23.718L4.17 23.774L15.337 12.607V11.393L4.17 0.226L4.093 0.283ZM16.038 13.308L20.85 18.119L19.388 20.309L16.038 13.308ZM17.16 11.999L21.458 16.297L21.603 16.425C21.751 16.34 21.821 16.22 21.821 16.082C21.821 15.945 21.751 15.824 21.603 15.739L17.16 11.999ZM16.038 10.691L19.388 3.691L20.85 5.881L16.038 10.691Z" />
+  </svg>
+);
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -63,10 +69,11 @@ export default function Footer() {
               {/* SOCIAL DOCK - HIGH VISIBILITY */}
               <div className="relative z-10 mt-12 bg-white/5 border border-white/10 rounded-full p-2 flex gap-2 w-fit backdrop-blur-md">
                 {[
-                  { icon: <WhatsAppIcon />, href: "https://wa.me/yourwhatsapplink", label: "WhatsApp" },
-                  { icon: <LinkedInIcon />, href: "#", label: "LinkedIn" },
+                  { icon: <WhatsAppIcon />, href: "https://wa.me/918639862034", label: "WhatsApp" },
+                  { icon: <LinkedInIcon />, href: "https://www.linkedin.com/company/revsmartx-zyder", label: "LinkedIn" },
                   { icon: <XIcon />, href: "#", label: "X" },
                   { icon: <InstagramIcon />, href: "#", label: "Instagram" },
+                  { icon: <PlayStoreIcon />, href: "https://play.google.com/store/apps/details?id=com.revsmartx.zyder&hl=es_419", label: "PlayStore" },
                 ].map((social) => (
                   <Magnetic key={social.label} strength={0.3}>
                     <Link
