@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
@@ -13,22 +15,35 @@ export default function ContactPage() {
     setLoading(true);
     setError("");
 
-    // Simulate network delay for better UX
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log("🚀 Starting Form Submission...");
 
     const formData = new FormData(e.currentTarget);
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      body: JSON.stringify(Object.fromEntries(formData)),
-      headers: { "Content-Type": "application/json" },
-    });
+    const data = Object.fromEntries(formData);
 
-    if (res.ok) {
+    try {
+      console.log("📝 Attempting to write to 'contacts' collection...", data);
+
+      const docRef = await addDoc(collection(db, "contacts"), {
+        ...data,
+        timestamp: serverTimestamp(),
+      });
+
+      console.log("✅ Document written with ID: ", docRef.id);
       setSuccess(true);
-    } else {
-      setError("Something went wrong. Please try again.");
+    } catch (err: any) {
+      console.error("❌ Error adding document: ", err);
+
+      if (err.code === 'permission-denied') {
+        setError("Permission Denied: Check your Firebase Security Rules.");
+        console.warn("Hint: Go to Firebase Console -> Firestore -> Rules and allow write access.");
+      } else if (err.code === 'unavailable') {
+        setError("Network Error: Could not reach Firebase. Check your internet connection.");
+      } else {
+        setError(`Error: ${err.message || "Something went wrong"}`);
+      }
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   if (success) {

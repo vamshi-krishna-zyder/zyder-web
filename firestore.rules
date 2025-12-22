@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Allow anyone to submit a contact form
+    match /contacts/{document} {
+      allow create: if true;
+      allow read: if false; // Keep data private
+    }
+
+    // Allow anyone to subscribe to newsletter
+    match /newsletter/{document} {
+      allow create: if true;
+      allow read: if false; // Keep data private
+    }
+    
+    // Default: Deny everything else
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -4,6 +4,9 @@ import Link from "next/link";
 import { Magnetic, TiltCard } from "@/components/ui/animation-wrappers";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 // --- ICONS ---
 const WhatsAppIcon = () => (
@@ -60,6 +63,24 @@ const ResponsiveCard = ({ children, className }: { children: React.ReactNode, cl
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubscribe = async () => {
+    if (!email) return;
+    setStatus("loading");
+    try {
+      await addDoc(collection(db, "newsletter"), {
+        email,
+        timestamp: serverTimestamp(),
+      });
+      setStatus("success");
+      setEmail("");
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+    }
+  };
 
   return (
     <footer className="relative bg-black pt-20 md:pt-32 pb-16 overflow-hidden border-t border-white/5">
@@ -159,10 +180,32 @@ export default function Footer() {
                   <p className="text-slate-400">Join our network for the latest logistics technology updates.</p>
                 </div>
                 <div className="flex flex-col sm:flex-row w-full md:w-auto gap-3">
-                  <input type="email" placeholder="Enter your email" className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-violet-500 transition-colors w-full md:w-80" suppressHydrationWarning />
-                  <button className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors w-full sm:w-auto" suppressHydrationWarning>
-                    Subscribe
-                  </button>
+                  {status === "success" ? (
+                    <div className="bg-green-500/10 border border-green-500/20 text-green-400 px-6 py-4 rounded-xl flex-1 flex items-center gap-2 w-full md:w-80 justify-center">
+                      <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                      Subscribed!
+                    </div>
+                  ) : (
+                    <>
+                      <input
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        disabled={status === "loading"}
+                        className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-violet-500 transition-colors w-full md:w-80"
+                        suppressHydrationWarning
+                      />
+                      <button
+                        onClick={handleSubscribe}
+                        disabled={status === "loading"}
+                        className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors w-full sm:w-auto disabled:opacity-50"
+                        suppressHydrationWarning
+                      >
+                        {status === "loading" ? "..." : "Subscribe"}
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             </ResponsiveCard>
