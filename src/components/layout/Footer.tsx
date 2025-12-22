@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Magnetic, TiltCard } from "@/components/ui/animation-wrappers";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 // --- ICONS ---
 const WhatsAppIcon = () => (
@@ -37,11 +38,31 @@ const PlayStoreIcon = () => (
   </svg>
 );
 
+// --- COMPONENT: RESPONSIVE CARD WRAPPER ---
+// Only applies TiltCard on desktop to prevent mobile scrolling issues/overflow
+const ResponsiveCard = ({ children, className }: { children: React.ReactNode, className?: string }) => {
+  return (
+    <>
+      {/* Mobile: Simple Div (No Tilt) */}
+      <div className={cn("block md:hidden h-full rounded-3xl bg-white/5 border border-white/10 overflow-hidden relative", className)}>
+        {children}
+      </div>
+
+      {/* Desktop: Tilt Card */}
+      <div className="hidden md:block h-full">
+        <TiltCard className={cn("h-full rounded-3xl bg-white/5 border border-white/10 overflow-hidden relative", className)}>
+          {children}
+        </TiltCard>
+      </div>
+    </>
+  );
+}
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-black pt-32 pb-16 overflow-hidden border-t border-white/5">
+    <footer className="relative bg-black pt-20 md:pt-32 pb-16 overflow-hidden border-t border-white/5">
 
       {/* Network Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,0.1),transparent_70%)] pointer-events-none" />
@@ -49,12 +70,12 @@ export default function Footer() {
 
       <div className="container-width relative z-10 px-6">
 
-        {/* BENTO GRID LAYOUT */}
-        <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-6 mb-12">
+        {/* LAYOUT: Flex Col on Mobile -> Grid on Desktop */}
+        <div className="flex flex-col md:grid md:grid-cols-6 lg:grid-cols-12 gap-6 mb-12">
 
           {/* 1. BRAND CARD (Span 5) */}
           <div className="md:col-span-6 lg:col-span-5">
-            <TiltCard className="h-full p-10 rounded-3xl bg-gradient-to-br from-white/5 to-black border border-white/10 flex flex-col justify-between group overflow-hidden relative">
+            <ResponsiveCard className="p-8 md:p-10 bg-gradient-to-br from-white/5 to-black flex flex-col justify-between">
               <div className="relative z-10">
                 <Link href="/" className="inline-flex items-center gap-3 mb-8">
                   <div className="w-12 h-12 rounded-xl bg-violet-600 flex items-center justify-center text-white text-2xl font-bold font-display">Z</div>
@@ -66,8 +87,8 @@ export default function Footer() {
                 </p>
               </div>
 
-              {/* SOCIAL DOCK - HIGH VISIBILITY */}
-              <div className="relative z-10 mt-12 bg-white/5 border border-white/10 rounded-full p-2 flex gap-2 w-fit backdrop-blur-md">
+              {/* SOCIAL DOCK */}
+              <div className="relative z-10 mt-12 bg-white/5 border border-white/10 rounded-full p-2 flex gap-2 w-fit backdrop-blur-md flex-wrap">
                 {[
                   { icon: <WhatsAppIcon />, href: "https://wa.me/918639862034", label: "WhatsApp" },
                   { icon: <LinkedInIcon />, href: "https://www.linkedin.com/company/revsmartx-zyder", label: "LinkedIn" },
@@ -86,12 +107,12 @@ export default function Footer() {
                   </Magnetic>
                 ))}
               </div>
-            </TiltCard>
+            </ResponsiveCard>
           </div>
 
           {/* 2. LINKS CARD - PRODUCT (Span 3) */}
           <div className="md:col-span-3 lg:col-span-3">
-            <TiltCard className="h-full p-10 rounded-3xl bg-white/5 border border-white/10 flex flex-col relative group overflow-hidden hover:border-white/20 transition-colors">
+            <ResponsiveCard className="p-8 md:p-10">
               <h4 className="relative z-10 text-white font-semibold mb-8 text-lg">Platform</h4>
               <ul className="relative z-10 space-y-4">
                 {["Intelligence", "Workforce", "Payouts", "API Reference"].map(link => (
@@ -103,12 +124,12 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </TiltCard>
+            </ResponsiveCard>
           </div>
 
           {/* 3. LINKS CARD - COMPANY (Span 4) */}
           <div className="md:col-span-3 lg:col-span-4">
-            <TiltCard className="h-full p-10 rounded-3xl bg-white/5 border border-white/10 flex flex-col relative group overflow-hidden hover:border-white/20 transition-colors">
+            <ResponsiveCard className="p-8 md:p-10">
               <div className="flex justify-between items-start mb-8">
                 <h4 className="relative z-10 text-white font-semibold text-lg">Company</h4>
               </div>
@@ -123,38 +144,36 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </TiltCard>
+            </ResponsiveCard>
           </div>
-
-          {/* 2nd ROW */}
 
           {/* 4. NEWSLETTER (Span 12) */}
           <div className="col-span-12">
-            <TiltCard className="p-10 rounded-3xl bg-gradient-to-r from-violet-950/20 to-black border border-white/10 overflow-hidden relative group">
+            <ResponsiveCard className="p-8 md:p-10 bg-gradient-to-r from-violet-950/20 to-black">
               {/* Gradient Glow */}
               <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-violet-600/20 blur-[100px] rounded-full pointer-events-none" />
 
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-                <div className="max-w-xl">
+                <div className="max-w-xl text-center md:text-left">
                   <h4 className="text-2xl font-bold text-white mb-2">Stay connected.</h4>
                   <p className="text-slate-400">Join our network for the latest logistics technology updates.</p>
                 </div>
-                <div className="flex w-full md:w-auto gap-3">
+                <div className="flex flex-col sm:flex-row w-full md:w-auto gap-3">
                   <input type="email" placeholder="Enter your email" className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-violet-500 transition-colors w-full md:w-80" suppressHydrationWarning />
-                  <button className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors" suppressHydrationWarning>
+                  <button className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors w-full sm:w-auto" suppressHydrationWarning>
                     Subscribe
                   </button>
                 </div>
               </div>
-            </TiltCard>
+            </ResponsiveCard>
           </div>
 
         </div>
 
         {/* BOTTOM LEGAL */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mt-16 py-8 border-t border-white/5 text-sm text-slate-500 font-medium">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mt-16 py-8 border-t border-white/5 text-sm text-slate-500 font-medium text-center md:text-left">
           <p>© {currentYear} Zyder Inc. All rights reserved.</p>
-          <div className="flex gap-8">
+          <div className="flex gap-4 md:gap-8 flex-wrap justify-center">
             <Link href="#" className="hover:text-white transition-colors">Privacy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms</Link>
             <Link href="#" className="hover:text-white transition-colors">Security</Link>

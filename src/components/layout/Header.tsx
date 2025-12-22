@@ -103,7 +103,8 @@ export default function Header() {
             exit={{ opacity: 0, y: -20 }}
             className="fixed top-20 left-4 right-4 z-40 bg-black/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 md:hidden flex flex-col gap-2 shadow-2xl"
           >
-            {["Platform", "Company", "Careers"].map((item) => (
+            {/* FIX: Added "Login" to the mobile menu list */}
+            {["Platform", "Company", "Careers", "Login"].map((item) => (
               <Link
                 key={item}
                 href={`/${item.toLowerCase()}`}

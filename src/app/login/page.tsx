@@ -194,7 +194,8 @@ export default function LoginPage() {
                         </div>
 
                         {/* Massive Headline */}
-                        <h1 className="text-7xl md:text-8xl lg:text-[7rem] font-bold font-display tracking-tighter text-white leading-[0.85]">
+                        {/* MOBILE FIX: Reduced text-7xl to text-5xl for mobile safety */}
+                        <h1 className="text-5xl md:text-8xl lg:text-[7rem] font-bold font-display tracking-tighter text-white leading-[0.85]">
                             Unified. <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 via-slate-200 to-slate-500 opacity-80">
                                 Intelligent.
@@ -228,7 +229,8 @@ export default function LoginPage() {
 
                 {/* --- RIGHT: QUANTUM STACK --- */}
                 <div className="lg:col-span-7 flex justify-center lg:justify-end perspective-[2000px] order-1 lg:order-2">
-                    <FadeIn delay={0.3} className="relative z-10 scale-[1.1] lg:scale-[1.2]">
+                    {/* MOBILE FIX: Scaled down to 0.85 on mobile */}
+                    <FadeIn delay={0.3} className="relative z-10 scale-[0.85] md:scale-[1.1] lg:scale-[1.2]">
                         <QuantumStack />
                     </FadeIn>
                 </div>

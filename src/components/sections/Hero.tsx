@@ -26,9 +26,11 @@ export default function Hero() {
             </div>
           </BlurReveal>
 
-          <div className="mb-8">
+          {/* FIX: Added relative positioning to fix Framer Motion VelocityScroll warning */}
+          <div className="mb-8 relative">
             <VelocityScroll maxSkew={10}>
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight font-display text-transparent bg-clip-text bg-gradient-to-b from-white to-white/70">
+              {/* MOBILE FIX: Reduced text size from 5xl to 4xl to prevent cut-off */}
+              <h1 className="text-4xl md:text-7xl font-bold tracking-tight font-display text-transparent bg-clip-text bg-gradient-to-b from-white to-white/70">
                 The Operating System for <br />
                 <span className="text-gradient-accent">
                   Last-Mile Delivery

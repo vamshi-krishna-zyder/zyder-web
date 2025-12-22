@@ -51,7 +51,8 @@ export default function Problem() {
           </BlurReveal>
         </div>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[50vh] min-h-[400px]">
+        {/* MOBILE FIX: Changed h-[50vh] to h-auto on mobile to allow natural stacking without clipping */}
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[50vh] min-h-[400px]">
           {challenges.map((item, index) => (
             <StaggerItem key={index} className="h-full">
               <SpotlightCard className="h-full group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 hover:border-white/20 transition-all duration-500">
@@ -71,9 +72,10 @@ export default function Problem() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent group-hover:via-black/20 transition-all duration-500" />
 
                 {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-transform duration-500 group-hover:-translate-y-2 translate-y-2">
-                  <h3 className="text-3xl font-bold mb-3 text-white drop-shadow-md">{item.title}</h3>
-                  <p className="text-slate-300 text-lg leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
+                {/* MOBILE FIX: Reduced padding p-6 and font sizes for mobile compact view */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 transform transition-transform duration-500 group-hover:-translate-y-2 translate-y-2">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-3 text-white drop-shadow-md">{item.title}</h3>
+                  <p className="text-slate-300 text-base md:text-lg leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
                     {item.description}
                   </p>
                 </div>

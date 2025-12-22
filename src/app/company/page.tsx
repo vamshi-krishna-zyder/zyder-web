@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { TextReveal, BlurReveal, StaggerContainer, StaggerItem, TiltCard, FadeIn } from "@/components/ui/animation-wrappers";
+import { TextReveal, BlurReveal, StaggerContainer, StaggerItem, TiltCard, FadeIn, Parallax } from "@/components/ui/animation-wrappers";
 
 export default function CompanyPage() {
     return (
         <div className="pt-32 pb-24 overflow-x-hidden">
             {/* Mission Hero - Split Layout (Left Aligned) */}
-            <section className="container-width mb-32 pt-20">
+            <section className="container-width mb-20 md:mb-32 pt-10 md:pt-20">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="max-w-2xl text-left relative z-10">
                         <BlurReveal delay={0.1}>
@@ -33,7 +33,7 @@ export default function CompanyPage() {
                         {/* Abstract Network Visual */}
                         <FadeIn delay={0.3} duration={0.8}>
                             <TiltCard className="relative rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-md shadow-2xl shadow-violet-900/20">
-                                <div className="aspect-square md:aspect-[4/3] rounded-xl bg-black/50 overflow-hidden relative">
+                                <Parallax offset={20} className="aspect-square md:aspect-[4/3] rounded-xl bg-black/50 overflow-hidden relative">
                                     <Image
                                         src="/company_hero_backbone_cine.png"
                                         alt="Global Logistics Backbone"
@@ -43,7 +43,7 @@ export default function CompanyPage() {
                                     />
                                     {/* Overlay Gradient for integration */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
-                                </div>
+                                </Parallax>
                             </TiltCard>
                         </FadeIn>
                         {/* Decorative Glow */}
@@ -53,7 +53,8 @@ export default function CompanyPage() {
             </section>
 
             {/* Cinematic Values Grid */}
-            <section className="bg-white/[0.02] border-y border-white/5 py-32 mb-24 relative overflow-hidden">
+            {/* MOBILE FIX: Reduced padding from py-32 to py-20 for mobile */}
+            <section className="bg-white/[0.02] border-y border-white/5 py-20 md:py-32 mb-24 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 mix-blend-overlay" />
 
                 <div className="container-width relative z-10">
@@ -149,7 +150,8 @@ export default function CompanyPage() {
                     </div>
 
                     <FadeIn delay={0.6}>
-                        <TiltCard className="relative h-[500px] w-full rounded-2xl overflow-hidden glass-panel border border-white/10 group shadow-2xl">
+                        {/* MOBILE FIX: Adaptive height for team image (300px mobile, 500px desktop) */}
+                        <TiltCard className="relative h-[300px] md:h-[500px] w-full rounded-2xl overflow-hidden glass-panel border border-white/10 group shadow-2xl">
                             <Image
                                 src="/company_team_abstract.png"
                                 alt="Zyder Collaborative Network"

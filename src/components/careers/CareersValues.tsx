@@ -73,11 +73,12 @@ export default function CareersValues() {
         </div>
 
         {/* Monolith Grid */}
-        <StaggerContainer className="grid md:grid-cols-4 gap-6 h-[500px]" delay={0.2}>
+        {/* MOBILE FIX: Changed h-[500px] to h-auto md:h-[500px] to prevent stacking overlap */}
+        <StaggerContainer className="grid md:grid-cols-4 gap-6 h-auto md:h-[500px]" delay={0.2}>
           {values.map((value, i) => (
             <StaggerItem key={i} className="h-full">
               <TiltCard className={`
-                  group relative h-full rounded-[32px] overflow-hidden
+                  group relative w-full h-[500px] md:h-full rounded-[32px] overflow-hidden
                   bg-black border border-white/10
                   transition-all duration-700
                   flex flex-col justify-end

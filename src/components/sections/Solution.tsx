@@ -63,7 +63,8 @@ export default function Solution() {
 
         {/* Background / Image Area (Right Side, but visually dominant) */}
         <div className="absolute inset-0 md:relative md:w-3/5 h-full order-2 md:order-2">
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent z-10 md:bg-gradient-to-r md:from-black md:via-transparent md:to-transparent" />
+          {/* MOBILE FIX: Darker gradient on mobile (via-black/80) to make text readable over image */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10 md:bg-gradient-to-r md:from-black md:via-transparent md:to-transparent" />
 
           <AnimatePresence mode="popLayout">
             <motion.div
