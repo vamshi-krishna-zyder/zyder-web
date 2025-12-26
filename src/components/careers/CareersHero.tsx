@@ -22,14 +22,14 @@ export default function CareersHero() {
         <FadeIn>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-sm font-medium text-white mb-8 backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            We are hiring builders
+            We Are Hiring Builders
           </div>
         </FadeIn>
 
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display leading-tight mb-8 drop-shadow-2xl">
-          <BlurReveal delay={0.1}>Build the</BlurReveal> <br />
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold font-display leading-tight mb-8 drop-shadow-2xl">
+          <BlurReveal delay={0.1}>Build The</BlurReveal> <br />
           <BlurReveal delay={0.2}>
-            <span className="text-white">Future of Logistics</span>
+            <span className="text-white">Future Of Logistics</span>
           </BlurReveal>
         </h1>
 

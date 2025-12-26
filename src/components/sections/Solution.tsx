@@ -57,14 +57,41 @@ export default function Solution() {
   }, [scrollYProgress]);
 
   return (
-    <section ref={containerRef} className="relative h-[400vh] bg-black text-white">
-      {/* The Sticky Viewport */}
-      <div className="sticky top-0 h-screen flex flex-col md:flex-row items-center overflow-hidden">
+    <section ref={containerRef} className="relative md:h-[400vh] h-auto bg-black text-white">
+
+      {/* --- MOBILE VIEW (Vertical Stack) --- */}
+      <div className="md:hidden flex flex-col gap-20 py-20 px-4 container-width">
+        {features.map((feature, index) => (
+          <div key={index} className="flex flex-col gap-6">
+            <div className="relative aspect-video w-full rounded-2xl overflow-hidden border border-white/10">
+              <Image
+                src={feature.image}
+                alt={feature.title}
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-white/5 mix-blend-overlay" />
+            </div>
+            <div>
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-violet-500 font-mono text-xs tracking-wider">0{index + 1}</span>
+                <h3 className="text-3xl font-bold font-display">{feature.title}</h3>
+              </div>
+              <p className="text-slate-400 leading-relaxed pl-4 border-l-2 border-white/20">
+                {feature.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* --- DESKTOP VIEW (Sticky Scroll) --- */}
+      <div className="hidden md:flex sticky top-20 h-[calc(100vh-5rem)] flex-col md:flex-row items-center overflow-hidden">
 
         {/* Background / Image Area (Right Side, but visually dominant) */}
         <div className="absolute inset-0 md:relative md:w-3/5 h-full order-2 md:order-2">
-          {/* MOBILE FIX: Darker gradient on mobile (via-black/80) to make text readable over image */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10 md:bg-gradient-to-r md:from-black md:via-transparent md:to-transparent" />
+          {/* MOBILE FIX: Vertical gradient on mobile for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/80 to-transparent z-10 md:bg-gradient-to-r md:from-black md:via-transparent md:to-transparent" />
 
           <AnimatePresence mode="popLayout">
             <motion.div
@@ -90,7 +117,7 @@ export default function Solution() {
         </div>
 
         {/* Content Area (Left Side) */}
-        <div className="relative z-20 w-full md:w-2/5 h-full flex flex-col justify-center p-8 md:p-20 order-1 md:order-1">
+        <div className="relative z-20 w-full md:w-2/5 h-full flex flex-col justify-center p-6 md:p-20 order-1 md:order-1">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
@@ -116,7 +143,7 @@ export default function Solution() {
                 </div>
               </div>
 
-              <h2 className="text-4xl md:text-6xl font-bold mb-8 font-display leading-tight">
+              <h2 className="text-3xl md:text-6xl font-bold mb-6 md:mb-8 font-display leading-tight">
                 {features[activeIndex].title}
               </h2>
               <p className="text-lg md:text-xl text-slate-300 leading-relaxed border-l-2 border-white/20 pl-6">

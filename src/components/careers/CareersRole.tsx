@@ -13,7 +13,7 @@ const roles = [
     id: "ENG-01",
     title: "Senior Full Stack Engineer",
     team: "Engineering",
-    location: "Bangalore",
+    location: "Hyderabad",
     type: "Full-time",
     icon: Code2
   },
@@ -21,7 +21,7 @@ const roles = [
     id: "DES-01",
     title: "Product Designer",
     team: "Design",
-    location: "Remote",
+    location: "Hyderabad",
     type: "Full-time",
     icon: PenTool
   },
@@ -29,7 +29,7 @@ const roles = [
     id: "ENG-02",
     title: "Backend Engineer (Go/Node)",
     team: "Engineering",
-    location: "Bangalore",
+    location: "Hyderabad",
     type: "Full-time",
     icon: Database
   },
@@ -37,7 +37,7 @@ const roles = [
     id: "OPS-01",
     title: "Operations Manager",
     team: "Operations",
-    location: "Mumbai",
+    location: "Hyderabad",
     type: "Full-time",
     icon: BarChart3
   },
@@ -64,11 +64,11 @@ export default function CareersRoles() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <FadeIn>
             <span className="text-violet-500 font-mono text-xs tracking-[0.2em] uppercase mb-4 block">
-              // Join the Network
+              // Join The Network
             </span>
             <h2 className="text-5xl md:text-7xl font-bold font-display text-white tracking-tighter">
-              OPEN <br />
-              <span className="text-slate-500">POSITIONS.</span>
+              Open <br />
+              <span className="text-slate-500">Positions</span>
             </h2>
           </FadeIn>
 
@@ -97,13 +97,15 @@ export default function CareersRoles() {
           <StaggerContainer className="space-y-4">
             <AnimatePresence mode="popLayout">
               {filteredRoles.map((role) => (
-                <motion.div
+                <motion.a
+                  href={`mailto:info@zyder.in?subject=Application for ${role.title} (${role.id})`}
                   key={role.id}
                   layout
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3 }}
+                  className="block"
                 >
                   <div className="group relative overflow-hidden rounded-2xl bg-white/[0.02] border border-white/10 hover:border-white/20 hover:bg-white/[0.04] transition-all duration-500 cursor-pointer">
 
@@ -160,7 +162,7 @@ export default function CareersRoles() {
 
                     </div>
                   </div>
-                </motion.div>
+                </motion.a>
               ))}
             </AnimatePresence>
           </StaggerContainer>

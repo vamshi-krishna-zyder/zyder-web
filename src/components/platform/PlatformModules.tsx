@@ -34,9 +34,9 @@ export default function PlatformModules() {
       <div className="container-width">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <h2 className="text-4xl md:text-6xl font-bold font-display mb-6">
-            <TextReveal delay={0.1}>Everything required to</TextReveal> <br />
+            <TextReveal delay={0.1}>Everything Required To</TextReveal> <br />
             <span className="text-gradient-accent">
-              <TextReveal delay={0.2}>operate at scale</TextReveal>
+              <TextReveal delay={0.2}>Operate At Scale</TextReveal>
             </span>
           </h2>
           <BlurReveal delay={0.3}>

@@ -19,7 +19,7 @@ export default function CareersBenefits() {
           </FadeIn>
         </div>
 
-        <StaggerContainer className="grid md:grid-cols-3 gap-8" delay={0.2}>
+        <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-8" delay={0.2}>
           {/* Card 1: Growth */}
           <StaggerItem className="h-full">
             <TiltCard className="group relative h-[500px] rounded-3xl overflow-hidden bg-black border border-white/10">

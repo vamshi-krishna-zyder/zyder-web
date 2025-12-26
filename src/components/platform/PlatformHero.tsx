@@ -4,39 +4,39 @@ import { Parallax, TextReveal, BlurReveal, Magnetic, TiltCard } from "@/componen
 
 export default function PlatformHero() {
   return (
-    <section className="pt-32 pb-20 relative overflow-hidden bg-black">
+    <section className="pt-24 md:pt-32 pb-20 relative overflow-hidden bg-black">
       {/* Cinematic Abstract Background */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-violet-900/10 to-transparent pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-full h-3/4 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none" />
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
 
       <div className="container-width relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="max-w-2xl">
+        <div className="grid xl:grid-cols-2 gap-12 items-center">
+          <div className="max-w-2xl text-center xl:text-left mx-auto xl:mx-0">
             <BlurReveal delay={0.1}>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-xs font-medium text-violet-300 mb-6 backdrop-blur-sm">
+              <div className="inline-flex items-center justify-center xl:justify-start gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-xs font-medium text-violet-300 mb-6 backdrop-blur-sm">
                 <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
                 Platform Overview
               </div>
             </BlurReveal>
 
             <div className="mb-6">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight">
-                <TextReveal delay={0.2}>A unified control layer for</TextReveal> <br />
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight">
+                <TextReveal delay={0.2}>A Unified Control Layer For</TextReveal> <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-indigo-400">
-                  <TextReveal delay={0.3}>last-mile ops</TextReveal>
+                  <TextReveal delay={0.3}>Last-Mile Ops</TextReveal>
                 </span>
               </h1>
             </div>
 
             <BlurReveal delay={0.2}>
-              <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-lg">
+              <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-lg mx-auto xl:mx-0">
                 Replace fragmented tools, spreadsheets, and manual coordination with one platform built for operational clarity, speed, and scale.
               </p>
             </BlurReveal>
 
             <BlurReveal delay={0.3}>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center xl:justify-start">
                 <Magnetic>
                   <Link
                     href="/contact"

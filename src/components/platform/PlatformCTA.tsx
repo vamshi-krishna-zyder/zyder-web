@@ -6,7 +6,7 @@ export default function PlatformCTA() {
       <div className="absolute inset-0 bg-gradient-to-b from-violet-900/5 to-transparent pointer-events-none" />
       <div className="container-width text-center relative z-10">
         <h2 className="text-3xl md:text-5xl font-bold font-display mb-8">
-          Ready to bring control <br /> to your operations?
+          Ready To Bring Control <br /> To Your Operations?
         </h2>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

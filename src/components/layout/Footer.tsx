@@ -83,7 +83,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-black pt-20 md:pt-32 pb-16 overflow-hidden border-t border-white/5">
+    <footer className="relative bg-black pt-16 md:pt-32 pb-12 md:pb-16 overflow-hidden border-t border-white/5">
 
       {/* Network Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,0.1),transparent_70%)] pointer-events-none" />
@@ -92,35 +92,35 @@ export default function Footer() {
       <div className="container-width relative z-10 px-6">
 
         {/* LAYOUT: Flex Col on Mobile -> Grid on Desktop */}
-        <div className="flex flex-col md:grid md:grid-cols-6 lg:grid-cols-12 gap-6 mb-12">
+        <div className="flex flex-col md:grid md:grid-cols-6 lg:grid-cols-12 gap-8 md:gap-6 mb-12">
 
           {/* 1. BRAND CARD (Span 5) */}
           <div className="md:col-span-6 lg:col-span-5">
-            <ResponsiveCard className="p-8 md:p-10 bg-gradient-to-br from-white/5 to-black flex flex-col justify-between">
+            <ResponsiveCard className="p-4 md:p-8 bg-gradient-to-br from-white/5 to-black flex flex-col justify-between">
               <div className="relative z-10">
-                <Link href="/" className="inline-flex items-center gap-3 mb-8">
-                  <div className="w-12 h-12 rounded-xl bg-violet-600 flex items-center justify-center text-white text-2xl font-bold font-display">Z</div>
-                  <span className="text-3xl font-bold text-white tracking-tight font-display">ZYDER</span>
+                <Link href="/" className="inline-flex items-center gap-3 mb-4 md:mb-6">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-violet-600 flex items-center justify-center text-white text-xl md:text-2xl font-bold font-display">Z</div>
+                  <span className="text-2xl md:text-3xl font-bold text-white tracking-tight font-display">ZYDER</span>
                 </Link>
-                <p className="text-lg text-slate-300 font-medium leading-relaxed max-w-sm">
+                <p className="text-sm md:text-lg text-slate-300 font-medium leading-relaxed max-w-sm">
                   The unified platform for modern logistics. <br />
                   Connecting fleets, agents, and brands.
                 </p>
               </div>
 
               {/* SOCIAL DOCK */}
-              <div className="relative z-10 mt-12 bg-white/5 border border-white/10 rounded-full p-2 flex gap-2 w-fit backdrop-blur-md flex-wrap">
+              <div className="relative z-10 mt-6 md:mt-8 bg-white/5 border border-white/10 rounded-full p-1.5 flex gap-1.5 md:gap-2 w-fit backdrop-blur-md flex-nowrap max-w-full overflow-x-auto no-scrollbar">
                 {[
                   { icon: <WhatsAppIcon />, href: "https://wa.me/918639862034", label: "WhatsApp" },
                   { icon: <LinkedInIcon />, href: "https://www.linkedin.com/company/revsmartx-zyder", label: "LinkedIn" },
-                  { icon: <XIcon />, href: "#", label: "X" },
-                  { icon: <InstagramIcon />, href: "#", label: "Instagram" },
+                  { icon: <XIcon />, href: "https://x.com/ZyderLogistics", label: "X" },
+                  { icon: <InstagramIcon />, href: "https://instagram.com/zyder_logistics", label: "Instagram" },
                   { icon: <PlayStoreIcon />, href: "https://play.google.com/store/apps/details?id=com.revsmartx.zyder&hl=es_419", label: "PlayStore" },
                 ].map((social) => (
                   <Magnetic key={social.label} strength={0.3}>
                     <Link
                       href={social.href}
-                      className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-violet-600 hover:text-white hover:scale-110 transition-all duration-300 shadow-lg"
+                      className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-violet-600 hover:text-white hover:scale-110 transition-all duration-300 shadow-lg shrink-0"
                       aria-label={social.label}
                     >
                       {social.icon}
@@ -133,12 +133,12 @@ export default function Footer() {
 
           {/* 2. LINKS CARD - PRODUCT (Span 3) */}
           <div className="md:col-span-3 lg:col-span-3">
-            <ResponsiveCard className="p-8 md:p-10">
-              <h4 className="relative z-10 text-white font-semibold mb-8 text-lg">Platform</h4>
-              <ul className="relative z-10 space-y-4">
+            <ResponsiveCard className="p-4 md:p-8">
+              <h4 className="relative z-10 text-white font-semibold mb-4 md:mb-6 text-lg">Platform</h4>
+              <ul className="relative z-10 space-y-2 md:space-y-3">
                 {["Intelligence", "Workforce", "Payouts", "API Reference"].map(link => (
                   <li key={link}>
-                    <Link href="#" className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 text-base font-medium group/link">
+                    <Link href="#" className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 text-sm md:text-base font-medium group/link">
                       <span className="w-1.5 h-1.5 rounded-full bg-violet-500 opacity-0 group-hover/link:opacity-100 transition-opacity" />
                       {link}
                     </Link>
@@ -150,15 +150,15 @@ export default function Footer() {
 
           {/* 3. LINKS CARD - COMPANY (Span 4) */}
           <div className="md:col-span-3 lg:col-span-4">
-            <ResponsiveCard className="p-8 md:p-10">
-              <div className="flex justify-between items-start mb-8">
+            <ResponsiveCard className="p-4 md:p-8">
+              <div className="flex justify-between items-start mb-4 md:mb-6">
                 <h4 className="relative z-10 text-white font-semibold text-lg">Company</h4>
               </div>
 
-              <ul className="relative z-10 space-y-4">
+              <ul className="relative z-10 space-y-2 md:space-y-3">
                 {["About Us", "Careers", "Blog", "Contact Support"].map(link => (
                   <li key={link}>
-                    <Link href="#" className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 text-base font-medium group/link">
+                    <Link href="#" className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 text-sm md:text-base font-medium group/link">
                       <span className="w-1.5 h-1.5 rounded-full bg-white opacity-0 group-hover/link:opacity-100 transition-opacity" />
                       {link}
                     </Link>
@@ -170,18 +170,18 @@ export default function Footer() {
 
           {/* 4. NEWSLETTER (Span 12) */}
           <div className="col-span-12">
-            <ResponsiveCard className="p-8 md:p-10 bg-gradient-to-r from-violet-950/20 to-black">
+            <ResponsiveCard className="p-4 md:p-8 bg-gradient-to-r from-violet-950/20 to-black">
               {/* Gradient Glow */}
-              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-violet-600/20 blur-[100px] rounded-full pointer-events-none" />
+              <div className="absolute top-0 right-0 w-[200px] h-[200px] md:w-[300px] md:h-[300px] bg-violet-600/20 blur-[60px] md:blur-[100px] rounded-full pointer-events-none" />
 
-              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-                <div className="max-w-xl text-center md:text-left">
-                  <h4 className="text-2xl font-bold text-white mb-2">Stay connected.</h4>
-                  <p className="text-slate-400">Join our network for the latest logistics technology updates.</p>
+              <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-4 md:gap-6">
+                <div className="max-w-xl text-center lg:text-left w-full">
+                  <h4 className="text-xl md:text-2xl font-bold text-white mb-2 text-balance">Stay connected.</h4>
+                  <p className="text-sm md:text-base text-slate-400 text-balance">Join our network for the latest logistics technology updates.</p>
                 </div>
-                <div className="flex flex-col sm:flex-row w-full md:w-auto gap-3">
+                <div className="flex flex-col sm:flex-row w-full lg:w-auto gap-3">
                   {status === "success" ? (
-                    <div className="bg-green-500/10 border border-green-500/20 text-green-400 px-6 py-4 rounded-xl flex-1 flex items-center gap-2 w-full md:w-80 justify-center">
+                    <div className="bg-green-500/10 border border-green-500/20 text-green-400 px-6 py-4 rounded-xl flex-1 flex items-center gap-2 w-full lg:w-80 justify-center">
                       <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                       Subscribed!
                     </div>
@@ -193,13 +193,13 @@ export default function Footer() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         disabled={status === "loading"}
-                        className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-violet-500 transition-colors w-full md:w-80"
+                        className="flex-1 min-w-0 bg-white/5 border border-white/10 rounded-xl px-4 py-3 md:py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-violet-500 transition-colors w-full lg:w-80 text-sm md:text-base"
                         suppressHydrationWarning
                       />
                       <button
                         onClick={handleSubscribe}
                         disabled={status === "loading"}
-                        className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors w-full sm:w-auto disabled:opacity-50"
+                        className="bg-white text-black px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors w-full sm:w-auto disabled:opacity-50 text-sm md:text-base shrink-0"
                         suppressHydrationWarning
                       >
                         {status === "loading" ? "..." : "Subscribe"}
@@ -214,7 +214,7 @@ export default function Footer() {
         </div>
 
         {/* BOTTOM LEGAL */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mt-16 py-8 border-t border-white/5 text-sm text-slate-500 font-medium text-center md:text-left">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mt-12 md:mt-16 py-8 border-t border-white/5 text-xs md:text-sm text-slate-500 font-medium text-center md:text-left">
           <p>© {currentYear} Zyder Inc. All rights reserved.</p>
           <div className="flex gap-4 md:gap-8 flex-wrap justify-center">
             <Link href="#" className="hover:text-white transition-colors">Privacy</Link>

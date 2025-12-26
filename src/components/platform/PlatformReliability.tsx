@@ -14,8 +14,8 @@ export default function PlatformReliability() {
                 System Status: Operational
               </div>
               <h2 className="text-3xl md:text-5xl font-bold font-display leading-tight mb-8">
-                Built for <br />
-                <span className="text-gradient-accent">mission-critical scale</span>
+                Built For <br />
+                <span className="text-gradient-accent">Mission-Critical Scale</span>
               </h2>
             </FadeIn>
             <FadeIn delay={0.2}>

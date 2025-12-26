@@ -41,7 +41,7 @@ export default function PlatformWorkflow() {
       <div className="container-width">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">
-            <TextReveal delay={0.1}>A single connected workflow</TextReveal>
+            <TextReveal delay={0.1}>A Single Connected Workflow</TextReveal>
           </h2>
           <BlurReveal delay={0.2}>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto">

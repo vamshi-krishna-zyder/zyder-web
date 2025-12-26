@@ -11,29 +11,29 @@ export default function WhoItsFor() {
       title: "Scale Operations",
       desc: "Manage multiple fleets, automate driver payouts, and reduce administrative overhead by 90%.",
       image: "/who_fleet_v2.png",
-      className: "md:col-span-2 md:row-span-2 min-h-[400px]"
+      className: "md:col-span-2 md:row-span-2 min-h-[300px] md:min-h-[360px]"
     },
     {
       label: "For D2C Brands",
       title: "Own the Experience",
       desc: "Gain full visibility into last-mile delivery. Improve customer satisfaction with accurate ETAs.",
       image: "/who_brand_v2.png",
-      className: "md:col-span-1 md:row-span-1 min-h-[300px]"
+      className: "md:col-span-1 md:row-span-1 min-h-[240px] md:min-h-[200px]"
     },
     {
       label: "For Delivery Agents",
       title: "Earn with Transparency",
       desc: "Real-time earnings tracking, instant withdrawals, and clear roster management.",
       image: "/who_driver_v2.png",
-      className: "md:col-span-1 md:row-span-1 min-h-[300px]"
+      className: "md:col-span-1 md:row-span-1 min-h-[240px] md:min-h-[200px]"
     }
   ];
 
   return (
-    <section className="py-24 bg-black relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-black relative overflow-hidden">
       <div className="container-width relative z-10">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 font-display">
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-display">
             <TextReveal>Who We Empower</TextReveal>
           </h2>
           <FadeIn delay={0.2}>
@@ -41,7 +41,7 @@ export default function WhoItsFor() {
           </FadeIn>
         </div>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 h-auto md:h-[500px]">
           {audiences.map((item, idx) => (
             <StaggerItem key={idx} className={cn("relative group", item.className)}>
               <TiltCard className="h-full w-full rounded-3xl overflow-hidden border border-white/10 relative">

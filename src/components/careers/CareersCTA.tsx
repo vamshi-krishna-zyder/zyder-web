@@ -3,7 +3,7 @@ export default function CareersCTA() {
     <section className="py-24 border-t border-white/5 bg-white/[0.02]">
       <div className="container-width text-center">
         <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">
-          Don't see your role?
+          Don't See Your Role?
         </h2>
 
         <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-12">

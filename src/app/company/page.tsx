@@ -6,10 +6,10 @@ export default function CompanyPage() {
         <div className="pt-32 pb-24 overflow-x-hidden">
             {/* Mission Hero - Split Layout (Left Aligned) */}
             <section className="container-width mb-20 md:mb-32 pt-10 md:pt-20">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    <div className="max-w-2xl text-left relative z-10">
+                <div className="grid xl:grid-cols-2 gap-12 items-center">
+                    <div className="max-w-2xl text-center xl:text-left relative z-10 mx-auto xl:mx-0">
                         <BlurReveal delay={0.1}>
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-xs font-medium text-violet-300 mb-6 backdrop-blur-sm">
+                            <div className="inline-flex justify-center xl:justify-start items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-xs font-medium text-violet-300 mb-6 backdrop-blur-sm">
                                 <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
                                 Our Mission
                             </div>
@@ -17,13 +17,13 @@ export default function CompanyPage() {
 
                         <BlurReveal delay={0.2}>
                             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display mb-8 leading-tight">
-                                Building the backbone <br />
-                                <span className="text-gradient-accent">of modern commerce</span>
+                                Building The Backbone <br />
+                                <span className="text-gradient-accent">Of Modern Commerce</span>
                             </h1>
                         </BlurReveal>
 
                         <BlurReveal delay={0.4}>
-                            <p className="text-xl md:text-2xl text-slate-400 leading-relaxed max-w-lg">
+                            <p className="text-xl md:text-2xl text-slate-400 leading-relaxed max-w-lg mx-auto xl:mx-0">
                                 Zyder was founded with a single mission: to bring transparency, efficiency, and fairness to the last-mile logistics industry.
                             </p>
                         </BlurReveal>
@@ -60,7 +60,7 @@ export default function CompanyPage() {
                 <div className="container-width relative z-10">
                     <div className="text-center mb-20">
                         <FadeIn>
-                            <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">Built on Principle</h2>
+                            <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">Built On Principle</h2>
                         </FadeIn>
                         <FadeIn delay={0.2}>
                             <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
@@ -69,7 +69,7 @@ export default function CompanyPage() {
                         </FadeIn>
                     </div>
 
-                    <StaggerContainer className="grid md:grid-cols-3 gap-8" delay={0.2}>
+                    <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-8" delay={0.2}>
                         {[
                             {
                                 title: "Radical Transparency",
@@ -125,10 +125,10 @@ export default function CompanyPage() {
 
             {/* Team / Stats */}
             <section className="container-width mb-24">
-                <div className="grid md:grid-cols-2 gap-16 items-center">
+                <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <div>
                         <FadeIn>
-                            <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">Built by logistics experts</h2>
+                            <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">Built By Logistics Experts</h2>
                         </FadeIn>
                         <FadeIn delay={0.2}>
                             <p className="text-lg text-slate-400 mb-10 leading-relaxed">

@@ -2,14 +2,14 @@ import { StaggerContainer, StaggerItem, BlurReveal } from "@/components/ui/anima
 
 export default function TrustedBy() {
     return (
-        <section className="py-12 border-b border-white/5 bg-white/[0.02]">
+        <section className="py-10 md:py-16 border-b border-white/5 bg-white/[0.02]">
             <div className="container-width">
                 <BlurReveal delay={0.2}>
-                    <p className="text-center text-sm font-medium text-slate-500 mb-8 uppercase tracking-wider">
+                    <p className="text-center text-xs md:text-sm font-medium text-slate-500 mb-8 md:mb-12 uppercase tracking-wider">
                         Powering next-gen logistics teams
                     </p>
                 </BlurReveal>
-                <StaggerContainer className="flex flex-wrap items-center justify-center gap-12 md:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-500" delay={0.4}>
+                <StaggerContainer className="flex flex-wrap items-center justify-center gap-x-8 gap-y-8 md:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-500" delay={0.4}>
                     {[
                         (<svg className="h-8 w-auto text-white fill-current" viewBox="0 0 140 30">
                             <path d="M15,5 L25,25 L5,25 Z" />

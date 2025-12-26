@@ -10,14 +10,14 @@ export default function Hero() {
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden perspective-1000">
       {/* Background Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
-        <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-violet-600/20 rounded-full blur-[100px]" />
-        <div className="absolute top-[10%] right-[10%] w-[400px] h-[400px] bg-indigo-600/20 rounded-full blur-[100px]" />
+        <div className="absolute top-[20%] left-[10%] w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-violet-600/20 rounded-full blur-[80px] md:blur-[100px]" />
+        <div className="absolute top-[10%] right-[10%] w-[250px] h-[250px] md:w-[400px] md:h-[400px] bg-indigo-600/20 rounded-full blur-[80px] md:blur-[100px]" />
       </div>
 
       <div className="container-width relative z-10">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto px-4 md:px-0">
           <BlurReveal delay={0.1}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-violet-300 mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-violet-300 mb-6 md:mb-8">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
@@ -27,11 +27,11 @@ export default function Hero() {
           </BlurReveal>
 
           {/* FIX: Added relative positioning to fix Framer Motion VelocityScroll warning */}
-          <div className="mb-8 relative">
+          <div className="mb-6 md:mb-8 relative w-full">
             <VelocityScroll maxSkew={10}>
               {/* MOBILE FIX: Reduced text size from 5xl to 4xl to prevent cut-off */}
-              <h1 className="text-4xl md:text-7xl font-bold tracking-tight font-display text-transparent bg-clip-text bg-gradient-to-b from-white to-white/70">
-                The Operating System for <br />
+              <h1 className="text-4xl md:text-7xl font-bold tracking-tight font-display text-transparent bg-clip-text bg-gradient-to-b from-white to-white/70 leading-[1.1]">
+                The Operating System for <br className="hidden md:block" />
                 <span className="text-gradient-accent">
                   Last-Mile Delivery
                 </span>
@@ -40,18 +40,18 @@ export default function Hero() {
           </div>
 
           <BlurReveal delay={0.4}>
-            <p className="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-400 max-w-2xl mb-8 md:mb-10 leading-relaxed">
               Unify your entire logistics stack. Manage workforce, automate payouts,
               and visualize real-time analytics in one powerful control layer.
             </p>
           </BlurReveal>
 
           <BlurReveal delay={0.6}>
-            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto h-auto min-h-[48px] justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto h-auto min-h-[48px] justify-center px-4 sm:px-0">
               <Magnetic>
                 <Link
                   href="/contact"
-                  className="h-12 px-8 rounded-full bg-white text-black font-semibold flex items-center justify-center hover:bg-slate-200 transition-colors"
+                  className="h-12 px-8 rounded-full bg-white text-black font-semibold flex items-center justify-center hover:bg-slate-200 transition-colors w-full sm:w-auto"
                 >
                   Start Free Trial
                 </Link>
@@ -59,7 +59,7 @@ export default function Hero() {
               <Magnetic>
                 <Link
                   href="/platform"
-                  className="h-12 px-8 rounded-full bg-white/5 text-white border border-white/10 font-medium flex items-center justify-center hover:bg-white/10 transition-colors"
+                  className="h-12 px-8 rounded-full bg-white/5 text-white border border-white/10 font-medium flex items-center justify-center hover:bg-white/10 transition-colors w-full sm:w-auto"
                 >
                   View Platform
                 </Link>
@@ -69,7 +69,7 @@ export default function Hero() {
         </div>
 
         {/* Cinematic Dashboard Zoom */}
-        <div className="mt-20 relative mx-auto max-w-6xl h-[60vh] md:h-[80vh]">
+        <div className="mt-12 md:mt-20 relative mx-auto max-w-6xl w-full aspect-video">
           <HeroParallax className="w-full h-full">
             <div className="relative w-full h-full rounded-xl bg-gradient-to-b from-white/10 to-white/5 p-1 backdrop-blur-sm shadow-2xl border border-white/10 overflow-hidden">
               <Image

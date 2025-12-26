@@ -237,7 +237,7 @@ export default function ContactPage() {
               </button>
 
               <p className="text-center text-xs text-slate-500 pt-2">
-                No credit card required. Free pilot available for qualified teams.
+                Get response within 24 hours
               </p>
             </form>
           </div>

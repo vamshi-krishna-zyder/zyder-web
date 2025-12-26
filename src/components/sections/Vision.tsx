@@ -26,17 +26,14 @@ export default function Vision() {
         {/* Planet Core */}
         <motion.div
           style={{ y, opacity }}
-          // MOBILE FIX: Fixed pixel size (300px) on mobile instead of VW to prevent overflow
-          // DESKTOP FIX: Changed to vmin (80vmin) so it fits in both width/height
-          className="w-[300px] h-[300px] md:w-[80vmin] md:h-[80vmin] bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.15),transparent_60%)] rounded-full blur-3xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          // MOBILE FIX: Use VW for responsive sizing on all phones
+          className="w-[80vw] h-[80vw] md:w-[80vmin] md:h-[80vmin] bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.15),transparent_60%)] rounded-full blur-3xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         />
 
         {/* Planet Wireframe/Surface */}
         <motion.div
           style={{ rotate }}
-          // MOBILE FIX: Fixed pixel size (280px) on mobile
-          // DESKTOP FIX: Changed to vmin (60vmin)
-          className="w-[280px] h-[280px] md:w-[60vmin] md:h-[60vmin] rounded-full border border-white/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_100px_rgba(139,92,246,0.1)] opacity-40 overflow-hidden"
+          className="w-[70vw] h-[70vw] md:w-[60vmin] md:h-[60vmin] rounded-full border border-white/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_100px_rgba(139,92,246,0.1)] opacity-40 overflow-hidden"
         >
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:2rem_2rem] md:bg-[size:4rem_4rem] opacity-50" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(255,255,255,0.1),transparent_70%)]" />
@@ -59,24 +56,20 @@ export default function Vision() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-          // MOBILE FIX: Fixed pixel size (320px) on mobile
-          // DESKTOP FIX: Changed to vmin (70vmin)
-          className="absolute w-[320px] h-[320px] md:w-[70vmin] md:h-[70vmin] rounded-full border border-violet-500/10 border-dashed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          className="absolute w-[90vw] h-[90vw] md:w-[70vmin] md:h-[70vmin] rounded-full border border-violet-500/10 border-dashed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         />
         <motion.div
           animate={{ rotate: -360 }}
           transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
-          // MOBILE FIX: Fixed pixel size (360px) on mobile
-          // DESKTOP FIX: Changed to vmin (90vmin)
-          className="absolute w-[360px] h-[360px] md:w-[90vmin] md:h-[90vmin] rounded-full border border-indigo-500/5 border-dashed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          className="absolute w-[100vw] h-[100vw] md:w-[90vmin] md:h-[90vmin] rounded-full border border-indigo-500/5 border-dashed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         />
 
       </div>
 
       <div className="container-width relative text-center z-10 mix-blend-screen px-4">
-        {/* MOBILE FIX: Reduced text size from 5xl -> 3xl, base -> 4xl */}
-        <h2 className="max-w-5xl mx-auto text-3xl md:text-8xl font-black leading-[0.9] font-display mb-12 tracking-tight">
-          <span className="block text-slate-500 opacity-50 text-base md:text-4xl font-light mb-4 tracking-widest uppercase">Unified Network</span>
+        {/* MOBILE FIX: Scaled text text-3xl (Mobile) -> text-5xl (Large Phone) -> text-6xl (Tablet) -> text-8xl (Desktop) */}
+        <h2 className="max-w-5xl mx-auto text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-black leading-[0.9] font-display mb-12 tracking-tight">
+          <span className="block text-slate-500 opacity-50 text-xs sm:text-sm md:text-xl lg:text-4xl font-light mb-4 tracking-widest uppercase">Unified Network</span>
           <TextReveal>INFRASTRUCTURE</TextReveal> <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40"><TextReveal delay={0.2}>FOR MODERN CITIES</TextReveal></span>
         </h2>

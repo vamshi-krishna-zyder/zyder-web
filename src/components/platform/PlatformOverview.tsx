@@ -6,12 +6,12 @@ export default function PlatformOverview() {
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 mix-blend-overlay" />
 
       <div className="container-width relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid xl:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
             <FadeIn delay={0.1}>
-              <h2 className="text-3xl md:text-5xl font-bold font-display leading-tight mb-8">
-                Designed to eliminate <br />
-                <span className="text-white">operational chaos</span>
+              <h2 className="text-3xl md:text-5xl font-bold font-display leading-tight mb-8 text-center xl:text-left">
+                Designed to Eliminate <br />
+                <span className="text-white">Operational Chaos</span>
               </h2>
             </FadeIn>
 
@@ -51,7 +51,7 @@ export default function PlatformOverview() {
           <div className="relative">
             <FadeIn delay={0.3} duration={0.5} direction="left">
               <div className="absolute -inset-4 bg-gradient-to-r from-violet-600/30 to-indigo-600/30 blur-3xl -z-10 rounded-full opacity-40 animate-pulse-slow" />
-              <div className="glass-panel p-8 md:p-12 rounded-3xl relative border border-white/10 overflow-hidden">
+              <div className="glass-panel p-6 md:p-12 rounded-3xl relative border border-white/10 overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-violet-500/10 blur-2xl rounded-full" />
 
                 <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
